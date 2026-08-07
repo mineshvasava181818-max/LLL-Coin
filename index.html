@@ -197,3 +197,136 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Form</title>
+    
+    <!-- यहाँ CSS (स्टाइल और एनिमेशन) का कोड है -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4a75ff, #1a4eff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* फॉर्म का डिब्बा और उसका तैरता हुआ एनिमेशन */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #1a4eff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #00c853;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- लॉगिन फॉर्म का हिस्सा -->
+    <div class="wrapper">
+        <div class="form-container">
+            <h2>Register now</h2>
+            <p class="subtitle">Secure your spot in our upcoming live webinar</p>
+            
+            <form id="registrationForm">
+                <div class="input-group">
+                    <label>What's your name? *</label>
+                    <input type="text" id="userName" placeholder="Name" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" placeholder="Surname" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Enter your email address *</label>
+                    <input type="email" placeholder="example@company.com" required>
+                </div>
+                
+                <button type="submit" class="btn">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- यहाँ वही JavaScript कोड है जो इमेज में दिख रहा है, जिसे <script> टैग के अंदर रखा गया है -->
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            // यूजर का नाम निकालकर सेव करना
+            const inputName = document.getElementById('userName').value;
+            localStorage.setItem('savedName', inputName);
+            
+            // अगले पेज पर जाने के लिए
+            window.location.href = "welcome.html"; 
+        });
+    </script>
+</body>
+</html>
