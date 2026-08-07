@@ -1,1 +1,39 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(135deg, #4a75ff, #1a4eff); min-height: 100vh; display: flex; justify-content: center; align-items: center; font-family: sans-serif; color: white; padding: 20px; }
+        .welcome-box { background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); width: 100%; max-width: 500px; text-align: center; }
+        h1 { margin-bottom: 10px; font-size: 28px; }
+        .subtitle { font-size: 15px; opacity: 0.8; margin-bottom: 25px; }
+        .content-area { background: rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 30px 20px; margin-bottom: 25px; border: 2px dashed rgba(255, 255, 255, 0.3); }
+        .coin-btn { display: inline-block; background: #1a4eff; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s; }
+        .coin-btn:hover { background: #0b3bcc; }
+        .logout-btn { background: #ff3b30; color: white; border: none; padding: 10px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="welcome-box">
+        <h1 id="displayName">Welcome! 🎉</h1>
+        <p class="subtitle">अब आप सफलतापूर्वक लॉगिन कर चुके हैं।</p>
+        <div class="content-area">
+            <p>🪙 आपका LLL COIN वॉलेट तैयार है!</p>
+            <a href="coin.html" class="coin-btn">View LLL COIN</a>
+        </div>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+    <script>
+        const userName = localStorage.getItem('savedName');
+        if (userName) { document.getElementById('displayName').innerText = `Welcome, ${userName}! 🎉`; }
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('savedName');
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
