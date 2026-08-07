@@ -416,4 +416,109 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard / Welcome Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #4a75ff, #1a4eff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .welcome-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            font-size: 15px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+        
+        /* इमेज या वीडियो के लिए डिब्बा */
+        .content-area {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 40px 20px;
+            margin-bottom: 25px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        .content-area p {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        /* Logout बटन की स्टाइल */
+        .logout-btn {
+            background: #ff3b30; /* लाल रंग का बटन */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .logout-btn:hover {
+            background: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-box">
+        <!-- यहाँ यूजर का नाम दिखेगा -->
+        <h1 id="displayName">Welcome! 🎉</h1>
+        <p class="subtitle">अब आप सफलतापूर्वक लॉगिन कर चुके हैं।</p>
+        
+        <!-- यहाँ आप भविष्य में अपनी इमेज या वीडियो कोड डाल सकते हैं -->
+        <div class="content-area">
+            <p>📺 [यहाँ आप अपनी कोई भी <b>इमेज, वीडियो या जानकारी</b> जोड़ सकते हैं]</p>
+        </div>
+
+        <!-- लॉगआउट बटन -->
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+
+    <script>
+        // LocalStorage से नाम लेकर स्क्रीन पर दिखाना
+        const userName = localStorage.getItem('savedName');
+        if (userName) {
+            document.getElementById('displayName').innerText = `Welcome, ${userName}! 🎉`;
+        }
+
+        // Logout बटन का काम
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            // मेमोरी से नाम साफ करना
+            localStorage.removeItem('savedName');
+            // वापस पहले पेज (index.html) पर भेजना
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
 
